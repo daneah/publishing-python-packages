@@ -14,7 +14,7 @@ jobs:
 
       - name: Run black
         run: tox -e format
-        working-directory: ch07 # You don't need this in your package
+        working-directory: ch07/first-python-package # You don't need this in your package
 
   lint:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
 
       - name: Run flake8
         run: tox -e lint
-        working-directory: ch07 # You don't need this in your package
+        working-directory: ch07/first-python-package # You don't need this in your package
 
   typecheck:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
 
       - name: Run mypy
         run: tox -e typecheck
-        working-directory: ch07 # You don't need this in your package
+        working-directory: ch07/first-python-package # You don't need this in your package
 
   test:
     runs-on: ubuntu-latest
@@ -65,4 +65,4 @@ jobs:
 
       - name: Run pytest
         run: tox -e ${{ matrix.python.toxenv }}
-        working-directory: ch07 # You don't need this in your package
+        working-directory: ch07/first-python-package # You don't need this in your package
