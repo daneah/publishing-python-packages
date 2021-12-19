@@ -84,7 +84,9 @@ jobs:
 
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
+        working-directory: ch07/first-python-package # You don't need this in your package
 
       - uses: actions/upload-artifact@v2
+        working-directory: ch07/first-python-package # You don't need this in your package
         with:
           path: ./wheelhouse/*.whl
