@@ -1,0 +1,64 @@
+name: Packaging (chapter 7)
+
+on: [push]
+
+jobs:
+  format:
+    name: Check formatting
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install tox
+        run: pipx install tox
+
+      - name: Run black
+        run: tox -e format
+        working-directory: ch07 # You don't need this in your package
+
+  lint:
+    name: Lint
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install tox
+        run: pipx install tox
+
+      - name: Run flake8
+        run: tox -e lint
+        working-directory: ch07 # You don't need this in your package
+
+  typecheck:
+    name: Type check
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install tox
+        run: pipx install tox
+
+      - name: Run mypy
+        run: tox -e typecheck
+        working-directory: ch07 # You don't need this in your package
+
+  test:
+    name: Test
+    strategy:
+      matrix:
+        python:
+          - version: "3.10"
+            toxenv: "py310"
+          - version: "3.9"
+            toxenv: "py39"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python.version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python.version }}
+
+      - name: Install tox
+        run: pipx install tox
+
+      - name: Run pytest
+        run: tox -e ${{ matrix.python.toxenv }}
+        working-directory: ch07 # You don't need this in your package
