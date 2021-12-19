@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   format:
+    runs-on: ubuntu-latest
     name: Check formatting
     steps:
       - uses: actions/checkout@v2
@@ -16,6 +17,7 @@ jobs:
         working-directory: ch07 # You don't need this in your package
 
   lint:
+    runs-on: ubuntu-latest
     name: Lint
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +30,7 @@ jobs:
         working-directory: ch07 # You don't need this in your package
 
   typecheck:
+    runs-on: ubuntu-latest
     name: Type check
     steps:
       - uses: actions/checkout@v2
@@ -40,6 +43,7 @@ jobs:
         working-directory: ch07 # You don't need this in your package
 
   test:
+    runs-on: ubuntu-latest
     name: Test
     strategy:
       matrix:
