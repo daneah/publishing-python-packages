@@ -1,6 +1,7 @@
 name: Packaging (chapter 7)
 
-on: [push]
+on:
+  - push
 
 jobs:
   format:
