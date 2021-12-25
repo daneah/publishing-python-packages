@@ -147,4 +147,4 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
-          packages_dir: ${{ steps.download.outputs.download-path }} # You don't need this in your package
+          packages_dir: ./ch07/first-python-package/dist/ # You don't need this in your package
