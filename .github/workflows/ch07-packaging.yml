@@ -118,9 +118,32 @@ jobs:
         run: python -m pip install cibuildwheel==2.3.1
 
       - name: Build wheels
-        run: python -m cibuildwheel --output-dir wheelhouse
+        run: python -m cibuildwheel --output-dir wheels
         working-directory: ch07/first-python-package # You don't need this in your package
 
       - uses: actions/upload-artifact@v2
         with:
-          path: ./ch07/first-python-package/wheelhouse/*.whl # Update to match root of package
+          path: ./ch07/first-python-package/wheels/*.whl # Update to match root of package
+
+  publish:
+    name: Publish package
+    if: startsWith(github.event.ref, "refs/tags")
+    needs:
+      - format
+      - lint
+      - typecheck
+      - test
+      - build_source_dist
+      - build_wheels
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          path: ./ch07/first-python-package/dist # Update to match root of package
+
+      - uses: pypa/gh-action-pypi-publish@v1.4.2
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          packages_dir: ${{ steps.download.outputs.download-path }} # You don't need this in your package
