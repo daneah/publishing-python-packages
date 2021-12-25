@@ -127,7 +127,7 @@ jobs:
 
   publish:
     name: Publish package
-    if: startsWith(github.event.ref, "refs/tags")
+    if: startsWith(github.event.ref, 'refs/tags/v')
     needs:
       - format
       - lint
