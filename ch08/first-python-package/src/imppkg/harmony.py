@@ -27,7 +27,7 @@ def _format_output(result: float) -> str:
     return colored(str(result), "red", "on_cyan", attrs=["bold"])
 
 
-def main():
+def main() -> None:
     nums = _parse_nums(sys.argv[1:])
     result = _calculate_result(nums)
     print(_format_output(result))
