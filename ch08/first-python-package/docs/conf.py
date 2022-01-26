@@ -10,7 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -51,3 +51,28 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+# -- Setup for sphinx-apidoc -------------------------------------------------
+
+# Read the Docs doesn't support running arbitrary commands like tox.
+# sphinx-apidoc needs to be called manually if Sphinx is running there.
+# https://github.com/readthedocs/readthedocs.org/issues/1139
+
+if os.environ.get("READTHEDOCS") == "True":
+    def run_apidoc(_):
+        from sphinx.ext import apidoc
+        apidoc.main([
+            "--force",
+            "--implicit-namespaces",
+            "--module-first",
+            "--separate",
+            "-o",
+            "docs/reference/",
+            "src/imppkg/",
+            "src/imppkg/*.c",
+            "src/imppkg/*.so",
+        ])
+
+    def setup(app):
+        app.connect('builder-inited', run_apidoc)
