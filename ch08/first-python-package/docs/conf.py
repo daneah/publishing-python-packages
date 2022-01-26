@@ -29,6 +29,7 @@ author = 'Dane Hillard'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autodoc.typehints',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
