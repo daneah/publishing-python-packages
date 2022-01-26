@@ -60,6 +60,11 @@ html_static_path = ['_static']
 # https://github.com/readthedocs/readthedocs.org/issues/1139
 
 if os.environ.get("READTHEDOCS") == "True":
+    from pathlib import Path
+
+    PROJECT_ROOT = Path(__file__).parent.parent
+    PACKAGE_ROOT = PROJECT_ROOT / "src" / "imppkg"
+
     def run_apidoc(_):
         from sphinx.ext import apidoc
         apidoc.main([
@@ -68,10 +73,10 @@ if os.environ.get("READTHEDOCS") == "True":
             "--module-first",
             "--separate",
             "-o",
-            "docs/reference/",
-            "src/imppkg/",
-            "src/imppkg/*.c",
-            "src/imppkg/*.so",
+            str(PROJECT_ROOT / "docs" / "reference"),
+            str(PACKAGE_ROOT),
+            str(PACKAGE_ROOT / "*.c"),
+            str(PACKAGE_ROOT / "*.so"),
         ])
 
     def setup(app):
