@@ -9,7 +9,7 @@ from termcolor import colored
 from imppkg.harmonic_mean import harmonic_mean
 
 
-def _parse_nums(inputs: str) -> list[float]:
+def _parse_nums(inputs: list[str]) -> list[float]:
     try:
         return [float(num) for num in inputs]
     except ValueError:
