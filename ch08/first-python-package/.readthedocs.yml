@@ -4,7 +4,7 @@ sphinx:
   configuration: docs/conf.py
 
 formats:
-  - html
+  - htmlzip
 
 build:
   tools:
