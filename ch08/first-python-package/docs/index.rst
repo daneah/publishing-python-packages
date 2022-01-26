@@ -6,6 +6,8 @@
 Welcome to pubpypack-harmony-dane-hillard's documentation!
 ==========================================================
 
+This package provides utilities for calculating the `harmonic mean <https://en.wikipedia.org/wiki/Harmonic_mean>`_ of a dataset.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
