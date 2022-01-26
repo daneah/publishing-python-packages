@@ -11,6 +11,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+from importlib import metadata
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -20,6 +21,9 @@ import os
 project = 'pubpypack-harmony-dane-hillard'
 copyright = '2022, Dane Hillard'
 author = 'Dane Hillard'
+PACKAGE_VERSION = metadata.version("pubpypack-harmony-dane-hillard")
+version = PACKAGE_VERSION
+release = PACKAGE_VERSION
 
 
 # -- General configuration ---------------------------------------------------
