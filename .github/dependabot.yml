@@ -2,11 +2,11 @@ version: 2
 
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/" # Location of package manifests
+    directory: "/"
     schedule:
       interval: "daily"
 
   - package-ecosystem: "pip"
-    directory: "/ch09" # Location of package manifests
+    directory: "/ch09"  # Leave this as "/" in your project
     schedule:
       interval: "daily"
