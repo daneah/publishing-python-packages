@@ -1,0 +1,12 @@
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "pip"
+    directory: "/ch09" # Location of package manifests
+    schedule:
+      interval: "daily"
