@@ -1,0 +1,18 @@
+repos:
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.31.0
+    hooks:
+      - id: pyupgrade
+        args: ['--py39-plus']
+
+  - repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+      - id: black
+        language_version: python3.10
+        args: ['--config=ch09/first-python-package/pyproject.toml']  # Just use '--config=pyproject.toml' in your project
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
