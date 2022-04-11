@@ -96,7 +96,7 @@ jobs:
         run: python -m build --sdist
         working-directory: ch07/first-python-package # You don't need this in your package
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: ch07/first-python-package/dist/*.tar.gz
 
@@ -121,7 +121,7 @@ jobs:
         run: python -m cibuildwheel --output-dir wheels
         working-directory: ch07/first-python-package # You don't need this in your package
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: ./ch07/first-python-package/wheels/*.whl # Update to match root of package
 
