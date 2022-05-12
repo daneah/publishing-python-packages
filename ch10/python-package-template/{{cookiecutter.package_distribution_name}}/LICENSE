@@ -1,0 +1,13 @@
+**REPLACE THIS CONTENT WITH THE LICENSE LOCATED AT THE FOLLOWING URL**:
+
+{% if cookiecutter.package_license == 'MIT License' %}
+https://opensource.org/licenses/MIT
+{% elif cookiecutter.package_license == 'BSD License' %}
+https://opensource.org/licenses/0BSD
+{% elif cookiecutter.package_license == 'ISC License (ISCL)' %}
+https://opensource.org/licenses/ISC
+{% elif cookiecutter.package_license == 'GNU General Public License v3 (GLPv3)' %}
+https://opensource.org/licenses/GPL-3.0
+{% elif cookiecutter.package_license == 'Apache Software License' %}
+https://opensource.org/licenses/Apache-2.0
+{% endif %}
