@@ -143,7 +143,7 @@ jobs:
           name: artifact
           path: ./ch07/first-python-package/dist # Update to match root of package
 
-      - uses: pypa/gh-action-pypi-publish@v1.5.0
+      - uses: pypa/gh-action-pypi-publish@v1.8.10
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
