@@ -2,6 +2,7 @@ name: Packaging (chapter 8)
 
 on:
   - push
+  - release
 
 jobs:
   format:
